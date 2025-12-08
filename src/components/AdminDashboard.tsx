@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Edit, Trash2, Save, X, ArrowLeft, Beaker, TrendingUp, Package, Users, Lock, FolderOpen, CreditCard, Sparkles, Heart, Layers, Shield, RefreshCw, Warehouse, ShoppingCart, HelpCircle, MapPin } from 'lucide-react';
+import { Plus, Edit, Trash2, Save, X, ArrowLeft, TrendingUp, Package, Users, FolderOpen, CreditCard, Sparkles, Layers, Shield, RefreshCw, Warehouse, ShoppingCart, HelpCircle, MapPin } from 'lucide-react';
 import type { Product } from '../types';
 import { useMenu } from '../hooks/useMenu';
 import { useCategories } from '../hooks/useCategories';
@@ -364,46 +364,42 @@ const AdminDashboard: React.FC = () => {
   // Login Screen
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white flex items-center justify-center px-4">
-        <div className="bg-white rounded-lg md:rounded-xl shadow-lg p-4 md:p-6 w-full max-w-md border border-gold-300/30">
-          <div className="text-center mb-4 md:mb-6">
-            <div className="relative mx-auto w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-black to-gray-900 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg overflow-hidden border-2 border-gold-500/30">
+      <div className="min-h-screen bg-theme-bg flex items-center justify-center px-4">
+        <div className="bg-white rounded-xl shadow-soft p-6 md:p-8 w-full max-w-md border border-gray-200">
+          <div className="text-center mb-6">
+            <div className="relative mx-auto w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-theme-accent/30">
               <img
                 src="/assets/logo.jpg"
                 alt="peptalk.ph"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                <Lock className="h-6 w-6 md:h-8 md:w-8 text-gold-500" />
-              </div>
             </div>
-            <h1 className="text-xl md:text-2xl font-bold mb-1.5 bg-gradient-to-r from-black via-gray-900 to-black bg-clip-text text-transparent">Admin Access</h1>
-            <p className="text-xs md:text-sm text-gray-600 flex items-center justify-center gap-1.5">
+            <h1 className="text-2xl font-bold text-theme-text mb-1">Admin Access</h1>
+            <p className="text-sm text-gray-500">
               Enter password to continue
-              <Sparkles className="w-3 h-3 text-gold-500" />
             </p>
           </div>
 
           <form onSubmit={handleLogin}>
-            <div className="mb-3 md:mb-4">
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">Password</label>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="input-field text-sm"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-theme-accent focus:border-theme-accent transition-colors"
                 placeholder="Enter admin password"
                 required
               />
               {loginError && (
-                <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1">
+                <p className="text-red-500 text-sm mt-2 flex items-center gap-1">
                   ❌ {loginError}
                 </p>
               )}
             </div>
 
-            <button type="submit" className="w-full bg-gradient-to-r from-black to-gray-900 hover:from-gray-900 hover:to-black text-white py-2 rounded-lg font-bold text-sm shadow-md hover:shadow-lg hover:shadow-gold-glow border border-gold-500/20 transition-all">
-              Access Dashboard ✨
+            <button type="submit" className="w-full bg-theme-accent hover:bg-theme-accent/90 text-white py-3 rounded-lg font-semibold transition-all">
+              Access Dashboard
             </button>
           </form>
         </div>
@@ -413,10 +409,10 @@ const AdminDashboard: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white flex items-center justify-center px-4">
+      <div className="min-h-screen bg-theme-bg flex items-center justify-center px-4">
         <div className="text-center">
-          <div className="w-12 h-12 md:w-16 md:h-16 border-4 border-gray-200 border-t-gold-600 rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-sm md:text-base text-gray-600 font-medium">Loading... ✨</p>
+          <div className="w-12 h-12 border-4 border-gray-200 border-t-theme-accent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-sm text-gray-600 font-medium">Loading...</p>
         </div>
       </div>
     );
@@ -1130,12 +1126,12 @@ const AdminDashboard: React.FC = () => {
   return (
     <>
       {variationManagerModal}
-      <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white">
-        <div className="bg-white shadow-md border-b border-gold-300/30">
-          <div className="max-w-6xl mx-auto px-3 sm:px-4">
-            <div className="flex items-center justify-between h-12 md:h-14">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-black to-gray-900 rounded-lg flex items-center justify-center shadow-lg overflow-hidden border-2 border-gold-500/30">
+      <div className="min-h-screen bg-theme-bg">
+        <div className="bg-white shadow-sm border-b border-gray-200">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="flex items-center justify-between h-14">
+              <div className="flex items-center space-x-3">
+                <div className="w-9 h-9 rounded-full overflow-hidden border border-gray-200">
                   <img
                     src="/assets/logo.jpg"
                     alt="peptalk.ph"
@@ -1143,27 +1139,26 @@ const AdminDashboard: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <h1 className="text-sm md:text-base font-bold bg-gradient-to-r from-black via-gray-900 to-black bg-clip-text text-transparent">
+                  <h1 className="text-base font-bold text-theme-text">
                     peptalk.ph
                   </h1>
-                  <p className="text-[9px] md:text-[10px] text-gray-600 font-medium flex items-center gap-0.5">
-                    <Sparkles className="w-2 h-2 text-gold-500" />
+                  <p className="text-xs text-gray-500">
                     Admin Dashboard
                   </p>
                 </div>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-3">
                 <a
                   href="/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-gold-600 transition-colors font-medium text-xs hidden sm:block"
+                  className="text-gray-600 hover:text-theme-accent transition-colors font-medium text-sm hidden sm:block"
                 >
                   View Website
                 </a>
                 <button
                   onClick={handleLogout}
-                  className="bg-gradient-to-r from-red-400 to-red-500 hover:from-red-500 hover:to-red-600 text-white px-2 md:px-3 py-1 rounded-md transition-all font-medium text-xs shadow-sm hover:shadow"
+                  className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg transition-colors font-medium text-sm"
                 >
                   Logout
                 </button>
@@ -1172,184 +1167,179 @@ const AdminDashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-3 sm:px-4 py-3 md:py-4">
+        <div className="max-w-6xl mx-auto px-4 py-4">
           {/* Stats Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-3 md:mb-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
             <button
               onClick={() => setCurrentView('products')}
-              className="bg-white rounded-lg md:rounded-xl shadow-md hover:shadow-lg transition-all p-2 md:p-3 border border-gold-300/30 transform hover:-translate-y-0.5 text-left cursor-pointer"
+              className="bg-white rounded-xl shadow-soft hover:shadow-md transition-all p-4 border border-gray-100 text-left cursor-pointer"
             >
               <div className="flex items-center">
-                <div className="p-1.5 md:p-2 bg-gradient-to-br from-black to-gray-900 rounded-md md:rounded-lg shadow-sm">
-                  <Package className="h-3 w-3 md:h-4 md:w-4 text-gold-500" />
+                <div className="p-2 bg-theme-accent/10 rounded-lg">
+                  <Package className="h-4 w-4 text-theme-accent" />
                 </div>
-                <div className="ml-2">
-                  <p className="text-[9px] md:text-xs font-medium text-gray-600">Total Products</p>
-                  <p className="text-lg md:text-xl font-bold bg-gradient-to-r from-black to-gray-900 bg-clip-text text-transparent">{totalProducts}</p>
+                <div className="ml-3">
+                  <p className="text-xs font-medium text-gray-500">Total Products</p>
+                  <p className="text-xl font-bold text-theme-text">{totalProducts}</p>
                 </div>
               </div>
             </button>
 
             <button
               onClick={() => setCurrentView('products')}
-              className="bg-white rounded-lg md:rounded-xl shadow-md hover:shadow-lg transition-all p-2 md:p-3 border border-gold-300/30 transform hover:-translate-y-0.5 text-left cursor-pointer"
+              className="bg-white rounded-xl shadow-soft hover:shadow-md transition-all p-4 border border-gray-100 text-left cursor-pointer"
             >
               <div className="flex items-center">
-                <div className="p-1.5 md:p-2 bg-gradient-to-br from-gold-500 to-gold-600 rounded-md md:rounded-lg shadow-sm">
-                  <TrendingUp className="h-3 w-3 md:h-4 md:w-4 text-black" />
+                <div className="p-2 bg-green-50 rounded-lg">
+                  <TrendingUp className="h-4 w-4 text-green-600" />
                 </div>
-                <div className="ml-2">
-                  <p className="text-[9px] md:text-xs font-medium text-gray-600">Available</p>
-                  <p className="text-lg md:text-xl font-bold bg-gradient-to-r from-gold-600 to-gold-500 bg-clip-text text-transparent">{availableProducts}</p>
+                <div className="ml-3">
+                  <p className="text-xs font-medium text-gray-500">Available</p>
+                  <p className="text-xl font-bold text-green-600">{availableProducts}</p>
                 </div>
               </div>
             </button>
 
             <button
               onClick={() => setCurrentView('products')}
-              className="bg-white rounded-lg md:rounded-xl shadow-md hover:shadow-lg transition-all p-2 md:p-3 border border-gold-300/30 transform hover:-translate-y-0.5 text-left cursor-pointer"
+              className="bg-white rounded-xl shadow-soft hover:shadow-md transition-all p-4 border border-gray-100 text-left cursor-pointer"
             >
               <div className="flex items-center">
-                <div className="p-1.5 md:p-2 bg-gradient-to-br from-gray-800 to-black rounded-md md:rounded-lg shadow-sm">
-                  <Sparkles className="h-3 w-3 md:h-4 md:w-4 text-gold-500" />
+                <div className="p-2 bg-theme-secondary/10 rounded-lg">
+                  <Sparkles className="h-4 w-4 text-theme-secondary" />
                 </div>
-                <div className="ml-2">
-                  <p className="text-[9px] md:text-xs font-medium text-gray-600">Featured</p>
-                  <p className="text-lg md:text-xl font-bold bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent">{featuredProducts}</p>
+                <div className="ml-3">
+                  <p className="text-xs font-medium text-gray-500">Featured</p>
+                  <p className="text-xl font-bold text-theme-secondary">{featuredProducts}</p>
                 </div>
               </div>
             </button>
 
             <button
               onClick={() => setCurrentView('categories')}
-              className="bg-white rounded-lg md:rounded-xl shadow-md hover:shadow-lg transition-all p-2 md:p-3 border border-gold-300/30 transform hover:-translate-y-0.5 text-left cursor-pointer"
+              className="bg-white rounded-xl shadow-soft hover:shadow-md transition-all p-4 border border-gray-100 text-left cursor-pointer"
             >
               <div className="flex items-center">
-                <div className="p-1.5 md:p-2 bg-gradient-to-br from-gold-400 to-gold-600 rounded-md md:rounded-lg shadow-sm">
-                  <Users className="h-3 w-3 md:h-4 md:w-4 text-black" />
+                <div className="p-2 bg-blue-50 rounded-lg">
+                  <Users className="h-4 w-4 text-blue-600" />
                 </div>
-                <div className="ml-2">
-                  <p className="text-[9px] md:text-xs font-medium text-gray-600">Categories</p>
-                  <p className="text-lg md:text-xl font-bold bg-gradient-to-r from-gold-600 to-gold-700 bg-clip-text text-transparent">{categories.length}</p>
+                <div className="ml-3">
+                  <p className="text-xs font-medium text-gray-500">Categories</p>
+                  <p className="text-xl font-bold text-blue-600">{categories.length}</p>
                 </div>
               </div>
             </button>
           </div>
 
           {/* Quick Actions */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            <div className="bg-white rounded-lg md:rounded-xl shadow-lg p-3 md:p-4 border border-gold-300/30">
-              <h3 className="text-sm md:text-base font-bold text-gray-900 mb-2 md:mb-3 flex items-center gap-1.5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white rounded-xl shadow-soft p-4 border border-gray-100">
+              <h3 className="text-base font-bold text-theme-text mb-3">
                 Quick Actions
-                <Sparkles className="w-3 h-3 md:w-4 md:h-4 text-gold-500" />
               </h3>
-              <div className="space-y-1 md:space-y-1.5">
+              <div className="space-y-1">
                 <button
                   onClick={handleAddProduct}
-                  className="w-full flex items-center gap-2 p-1.5 md:p-2 text-left hover:bg-gradient-to-r hover:from-gold-50 hover:to-gray-50 rounded-md md:rounded-lg transition-all group"
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1 md:p-1.5 bg-gradient-to-br from-black to-gray-900 rounded-md text-gold-500">
-                    <Plus className="h-3 w-3 md:h-4 md:w-4" />
+                  <div className="p-1.5 bg-theme-accent/10 rounded-lg">
+                    <Plus className="h-4 w-4 text-theme-accent" />
                   </div>
-                  <span className="text-xs font-medium text-gray-900">Add New Product</span>
+                  <span className="text-sm font-medium text-gray-700">Add New Product</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('products')}
-                  className="w-full flex items-center gap-2 p-1.5 md:p-2 text-left hover:bg-gradient-to-r hover:from-gold-50 hover:to-gray-50 rounded-md md:rounded-lg transition-all group"
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1 md:p-1.5 bg-gradient-to-br from-gray-800 to-black rounded-md text-gold-500">
-                    <Package className="h-3 w-3 md:h-4 md:w-4" />
+                  <div className="p-1.5 bg-gray-100 rounded-lg">
+                    <Package className="h-4 w-4 text-gray-600" />
                   </div>
-                  <span className="text-xs font-medium text-gray-900">Manage Products</span>
+                  <span className="text-sm font-medium text-gray-700">Manage Products</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('categories')}
-                  className="w-full flex items-center gap-2 p-1.5 md:p-2 text-left hover:bg-gradient-to-r hover:from-gold-50 hover:to-gray-50 rounded-md md:rounded-lg transition-all group"
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1 md:p-1.5 bg-gradient-to-br from-gold-500 to-gold-600 rounded-md text-black">
-                    <FolderOpen className="h-3 w-3 md:h-4 md:w-4" />
+                  <div className="p-1.5 bg-blue-50 rounded-lg">
+                    <FolderOpen className="h-4 w-4 text-blue-600" />
                   </div>
-                  <span className="text-xs font-medium text-gray-900">Manage Categories</span>
+                  <span className="text-sm font-medium text-gray-700">Manage Categories</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('payments')}
-                  className="w-full flex items-center gap-2 p-1.5 md:p-2 text-left hover:bg-gradient-to-r hover:from-gold-50 hover:to-gray-50 rounded-md md:rounded-lg transition-all group"
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1 md:p-1.5 bg-gradient-to-br from-black to-gray-900 rounded-md text-gold-500">
-                    <CreditCard className="h-3 w-3 md:h-4 md:w-4" />
+                  <div className="p-1.5 bg-purple-50 rounded-lg">
+                    <CreditCard className="h-4 w-4 text-purple-600" />
                   </div>
-                  <span className="text-xs font-medium text-gray-900">Payment Methods</span>
+                  <span className="text-sm font-medium text-gray-700">Payment Methods</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('coa')}
-                  className="w-full flex items-center gap-2 p-1.5 md:p-2 text-left hover:bg-gradient-to-r hover:from-gold-50 hover:to-gray-50 rounded-md md:rounded-lg transition-all group"
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1 md:p-1.5 bg-gradient-to-br from-gray-800 to-black rounded-md text-gold-500">
-                    <Shield className="h-3 w-3 md:h-4 md:w-4" />
+                  <div className="p-1.5 bg-theme-secondary/10 rounded-lg">
+                    <Shield className="h-4 w-4 text-theme-secondary" />
                   </div>
-                  <span className="text-xs font-medium text-gray-900">Lab Reports (COA)</span>
+                  <span className="text-sm font-medium text-gray-700">Lab Reports (COA)</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('inventory')}
-                  className="w-full flex items-center gap-2 p-1.5 md:p-2 text-left hover:bg-gradient-to-r hover:from-gold-50 hover:to-gray-50 rounded-md md:rounded-lg transition-all group"
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1 md:p-1.5 bg-gradient-to-br from-gold-400 to-gold-600 rounded-md text-black">
-                    <Warehouse className="h-3 w-3 md:h-4 md:w-4" />
+                  <div className="p-1.5 bg-orange-50 rounded-lg">
+                    <Warehouse className="h-4 w-4 text-orange-600" />
                   </div>
-                  <span className="text-xs font-medium text-gray-900">Peptide Inventory</span>
+                  <span className="text-sm font-medium text-gray-700">Peptide Inventory</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('orders')}
-                  className="w-full flex items-center gap-2 p-1.5 md:p-2 text-left hover:bg-gradient-to-r hover:from-gold-50 hover:to-gray-50 rounded-md md:rounded-lg transition-all group"
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1 md:p-1.5 bg-gradient-to-br from-black to-gray-900 rounded-md text-gold-500">
-                    <ShoppingCart className="h-3 w-3 md:h-4 md:w-4" />
+                  <div className="p-1.5 bg-theme-accent/10 rounded-lg">
+                    <ShoppingCart className="h-4 w-4 text-theme-accent" />
                   </div>
-                  <span className="text-xs font-medium text-gray-900">Orders Management</span>
+                  <span className="text-sm font-medium text-gray-700">Orders Management</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('faq')}
-                  className="w-full flex items-center gap-2 p-1.5 md:p-2 text-left hover:bg-gradient-to-r hover:from-gold-50 hover:to-gray-50 rounded-md md:rounded-lg transition-all group"
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1 md:p-1.5 bg-gradient-to-br from-gold-400 to-gold-600 rounded-md text-black">
-                    <HelpCircle className="h-3 w-3 md:h-4 md:w-4" />
+                  <div className="p-1.5 bg-yellow-50 rounded-lg">
+                    <HelpCircle className="h-4 w-4 text-yellow-600" />
                   </div>
-                  <span className="text-xs font-medium text-gray-900">FAQ Management</span>
+                  <span className="text-sm font-medium text-gray-700">FAQ Management</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('shipping')}
-                  className="w-full flex items-center gap-2 p-1.5 md:p-2 text-left hover:bg-gradient-to-r hover:from-gold-50 hover:to-gray-50 rounded-md md:rounded-lg transition-all group"
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1 md:p-1.5 bg-gradient-to-br from-green-400 to-green-600 rounded-md text-white">
-                    <MapPin className="h-3 w-3 md:h-4 md:w-4" />
+                  <div className="p-1.5 bg-green-50 rounded-lg">
+                    <MapPin className="h-4 w-4 text-green-600" />
                   </div>
-                  <span className="text-xs font-medium text-gray-900">Shipping Locations</span>
+                  <span className="text-sm font-medium text-gray-700">Shipping Locations</span>
                 </button>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg md:rounded-xl shadow-lg p-3 md:p-4 border border-gold-300/30">
-              <h3 className="text-sm md:text-base font-bold text-gray-900 mb-2 md:mb-3 flex items-center gap-1.5">
+            <div className="bg-white rounded-xl shadow-soft p-4 border border-gray-100">
+              <h3 className="text-base font-bold text-theme-text mb-3">
                 Categories Overview
-                <Heart className="w-3 h-3 md:w-4 md:h-4 text-gold-500 animate-pulse" />
               </h3>
-              <div className="space-y-1 md:space-y-1.5">
+              <div className="space-y-2">
                 {categoryCounts.map((category, index) => {
-                  const colors = [
-                    'from-black to-gray-900',
-                    'from-gray-800 to-black',
-                    'from-gold-500 to-gold-600',
-                    'from-gold-400 to-gold-600',
-                    'from-gray-700 to-gray-900',
-                    'from-black to-gray-800'
+                  const bgColors = [
+                    'bg-theme-accent',
+                    'bg-theme-secondary',
+                    'bg-blue-500',
+                    'bg-green-500',
+                    'bg-purple-500',
+                    'bg-orange-500'
                   ];
                   return (
-                    <div key={category.id} className="flex items-center justify-between py-1 md:py-1.5 hover:bg-gradient-to-r hover:from-gold-50 hover:to-gray-50 rounded-md md:rounded-lg px-2 transition-all">
-                      <span className="text-xs font-semibold text-gray-900">{category.name}</span>
-                      <span className={`text-[10px] md:text-xs font-bold ${index % 3 === 0 ? 'text-white bg-gradient-to-r from-black to-gray-900' :
-                        index % 3 === 1 ? 'text-black bg-gradient-to-r from-gold-500 to-gold-600' :
-                          'text-white bg-gradient-to-r from-gray-800 to-black'
-                        } px-2 py-0.5 rounded-full shadow-sm`}>
+                    <div key={category.id} className="flex items-center justify-between py-2 px-3 hover:bg-gray-50 rounded-lg transition-all">
+                      <span className="text-sm font-medium text-gray-700">{category.name}</span>
+                      <span className={`text-xs font-bold text-white ${bgColors[index % bgColors.length]} px-2.5 py-1 rounded-full`}>
                         {category.count}
                       </span>
                     </div>
