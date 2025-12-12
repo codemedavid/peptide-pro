@@ -300,7 +300,7 @@ const OrdersManager: React.FC<OrdersManagerProps> = ({ onBack }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white">
       {/* Header */}
-      <div className="bg-white shadow-md border-b border-gold-300/30">
+      <div className="bg-white shadow-md border-b-4 border-gold-400">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="flex items-center justify-between h-12 md:h-14 gap-2">
             <div className="flex items-center space-x-2 md:space-x-4 min-w-0 flex-1">
@@ -547,11 +547,11 @@ const OrderDetailsView: React.FC<OrderDetailsViewProps> = ({
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 md:gap-4">
             <div>
               <span className={`inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold border ${order.order_status === 'new' ? 'bg-gold-100 text-gold-800 border-gold-300' :
-                  order.order_status === 'confirmed' ? 'bg-gray-100 text-gray-800 border-gray-300' :
-                    order.order_status === 'processing' ? 'bg-gray-100 text-gray-800 border-gray-300' :
-                      order.order_status === 'shipped' ? 'bg-gray-100 text-gray-800 border-gray-300' :
-                        order.order_status === 'delivered' ? 'bg-green-100 text-green-800 border-green-300' :
-                          'bg-red-100 text-red-800 border-red-300'
+                order.order_status === 'confirmed' ? 'bg-gray-100 text-gray-800 border-gray-300' :
+                  order.order_status === 'processing' ? 'bg-gray-100 text-gray-800 border-gray-300' :
+                    order.order_status === 'shipped' ? 'bg-gray-100 text-gray-800 border-gray-300' :
+                      order.order_status === 'delivered' ? 'bg-green-100 text-green-800 border-green-300' :
+                        'bg-red-100 text-red-800 border-red-300'
                 }`}>
                 {order.order_status.charAt(0).toUpperCase() + order.order_status.slice(1)}
               </span>

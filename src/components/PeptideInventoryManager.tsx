@@ -232,7 +232,7 @@ const PeptideInventoryManager: React.FC<PeptideInventoryManagerProps> = ({ onBac
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-white">
       {/* Header */}
-      <div className="bg-white shadow-md border-b border-gold-300/30">
+      <div className="bg-white shadow-md border-b-4 border-gold-400">
         <div className="max-w-6xl mx-auto px-3 sm:px-4">
           <div className="flex items-center justify-between h-12 md:h-14">
             <div className="flex items-center space-x-2">
@@ -402,8 +402,8 @@ const InventoryItemCard: React.FC<InventoryItemCardProps> = ({ product, categori
                       {categories.find(c => c.id === product.category)?.name || product.category}
                     </span>
                     <span className={`px-2 py-0.5 rounded-full text-[10px] md:text-xs font-semibold ${variation.stock_quantity > 0
-                        ? 'bg-green-100 text-green-700'
-                        : 'bg-red-100 text-red-700'
+                      ? 'bg-green-100 text-green-700'
+                      : 'bg-red-100 text-red-700'
                       }`}>
                       {variation.stock_quantity > 0 ? 'IN STOCK' : 'OUT OF STOCK'}
                     </span>
@@ -511,8 +511,8 @@ const InventoryItemCard: React.FC<InventoryItemCardProps> = ({ product, categori
               {categories.find(c => c.id === product.category)?.name || product.category}
             </span>
             <span className={`px-2 py-0.5 rounded-full text-[10px] md:text-xs font-semibold ${product.stock_quantity > 0
-                ? 'bg-green-100 text-green-700'
-                : 'bg-red-100 text-red-700'
+              ? 'bg-green-100 text-green-700'
+              : 'bg-red-100 text-red-700'
               }`}>
               {product.stock_quantity > 0 ? 'IN STOCK' : 'OUT OF STOCK'}
             </span>

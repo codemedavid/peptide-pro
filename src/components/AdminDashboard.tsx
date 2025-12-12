@@ -398,7 +398,7 @@ const AdminDashboard: React.FC = () => {
               )}
             </div>
 
-            <button type="submit" className="w-full bg-theme-accent hover:bg-theme-accent/90 text-white py-3 rounded-lg font-semibold transition-all">
+            <button type="submit" className="w-full bg-navy-900 hover:bg-navy-800 text-white py-3 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg">
               Access Dashboard
             </button>
           </form>
@@ -1081,8 +1081,8 @@ const AdminDashboard: React.FC = () => {
   return (
     <>
       {variationManagerModal}
-      <div className="min-h-screen bg-theme-bg">
-        <div className="bg-white shadow-sm border-b border-gold-500/20">
+      <div className="min-h-screen bg-gray-50">
+        <div className="bg-white shadow-md border-b-4 border-gold-400">
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex items-center justify-between h-14">
               <div className="flex items-center space-x-3">
@@ -1113,7 +1113,7 @@ const AdminDashboard: React.FC = () => {
                 </a>
                 <button
                   onClick={handleLogout}
-                  className="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg transition-colors font-medium text-sm"
+                  className="bg-navy-900 hover:bg-navy-800 text-white px-4 py-2 rounded-lg transition-colors font-medium text-sm shadow-sm"
                 >
                   Logout
                 </button>
@@ -1197,19 +1197,19 @@ const AdminDashboard: React.FC = () => {
                   onClick={handleAddProduct}
                   className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1.5 bg-theme-accent/10 rounded-lg">
-                    <Plus className="h-4 w-4 text-theme-accent" />
+                  <div className="p-1.5 bg-navy-50 rounded-lg">
+                    <Plus className="h-4 w-4 text-navy-900" />
                   </div>
-                  <span className="text-sm font-medium text-gray-700">Add New Product</span>
+                  <span className="text-sm font-medium text-navy-900">Add New Product</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('products')}
                   className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1.5 bg-gray-100 rounded-lg">
-                    <Package className="h-4 w-4 text-gray-600" />
+                  <div className="p-1.5 bg-navy-50 rounded-lg">
+                    <Package className="h-4 w-4 text-navy-900" />
                   </div>
-                  <span className="text-sm font-medium text-gray-700">Manage Products</span>
+                  <span className="text-sm font-medium text-navy-900">Manage Products</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('categories')}
@@ -1242,10 +1242,10 @@ const AdminDashboard: React.FC = () => {
                   onClick={() => setCurrentView('orders')}
                   className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1.5 bg-theme-accent/10 rounded-lg">
-                    <ShoppingCart className="h-4 w-4 text-theme-accent" />
+                  <div className="p-1.5 bg-navy-50 rounded-lg">
+                    <ShoppingCart className="h-4 w-4 text-navy-900" />
                   </div>
-                  <span className="text-sm font-medium text-gray-700">Orders Management</span>
+                  <span className="text-sm font-medium text-navy-900">Orders Management</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('shipping')}
@@ -1260,19 +1260,19 @@ const AdminDashboard: React.FC = () => {
                   onClick={() => setCurrentView('coa')}
                   className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1.5 bg-cyan-50 rounded-lg">
-                    <Shield className="h-4 w-4 text-cyan-600" />
+                  <div className="p-1.5 bg-navy-50 rounded-lg">
+                    <Shield className="h-4 w-4 text-navy-900" />
                   </div>
-                  <span className="text-sm font-medium text-gray-700">Lab Results (COA)</span>
+                  <span className="text-sm font-medium text-navy-900">Lab Results (COA)</span>
                 </button>
                 <button
                   onClick={() => setCurrentView('faq')}
                   className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
                 >
-                  <div className="p-1.5 bg-indigo-50 rounded-lg">
-                    <HelpCircle className="h-4 w-4 text-indigo-600" />
+                  <div className="p-1.5 bg-navy-50 rounded-lg">
+                    <HelpCircle className="h-4 w-4 text-navy-900" />
                   </div>
-                  <span className="text-sm font-medium text-gray-700">Manage FAQ</span>
+                  <span className="text-sm font-medium text-navy-900">Manage FAQ</span>
                 </button>
               </div>
             </div>
