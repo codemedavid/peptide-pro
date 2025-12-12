@@ -28,16 +28,16 @@ export default {
         },
         // Deprecating gold but mapping to secondary/accent to prevent breaks
         gold: {
-          50: '#FFFFFF',
-          100: '#FDFCF8',
-          200: '#F8F4EA',
-          300: '#F0E6D2', // Beige
-          400: '#E0D0B0',
-          500: '#C0B090',
-          600: '#A09070',
-          700: '#807050',
-          800: '#605030',
-          900: '#1A1A1A',
+          50: '#FBF8F1',
+          100: '#F7F1E3',
+          200: '#EBDCB9',
+          300: '#DFC790',
+          400: '#D4AF37', // Classic Metallic Gold
+          500: '#B89628',
+          600: '#A08020',
+          700: '#806018',
+          800: '#604812',
+          900: '#40300C',
         },
         accent: {
           light: '#F0E6D2', // Beige

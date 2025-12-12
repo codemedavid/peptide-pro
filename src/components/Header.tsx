@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import { useCOAPageSetting } from '../hooks/useCOAPageSetting';
-import { ShoppingCart, Menu, X, MessageCircle } from 'lucide-react';
+import { ShoppingCart, Menu, X, MessageCircle, Calculator, FileText, HelpCircle } from 'lucide-react';
 
 interface HeaderProps {
   cartItemsCount: number;
@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
 
   return (
     <>
-      <header className="bg-white sticky top-0 z-50 border-b border-gray-100">
+      <header className="bg-white sticky top-0 z-50 border-b-4 border-gold-400 shadow-sm">
         <div className="container mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between gap-4">
             {/* Logo and Brand */}
@@ -57,6 +57,27 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
                 >
                   Products
                 </button>
+                <a
+                  href="/calculator"
+                  className="text-sm font-medium text-gray-600 hover:text-theme-accent transition-colors flex items-center gap-1"
+                >
+                  <Calculator className="w-4 h-4" />
+                  Calculator
+                </a>
+                <a
+                  href="/coa"
+                  className="text-sm font-medium text-gray-600 hover:text-theme-accent transition-colors flex items-center gap-1"
+                >
+                  <FileText className="w-4 h-4" />
+                  Lab Tests
+                </a>
+                <a
+                  href="/faq"
+                  className="text-sm font-medium text-gray-600 hover:text-theme-accent transition-colors flex items-center gap-1"
+                >
+                  <HelpCircle className="w-4 h-4" />
+                  FAQ
+                </a>
                 <a
                   href="https://t.me/+kdn_GOqZXxI1Y2Jl"
                   target="_blank"
@@ -102,35 +123,84 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
 
       {/* Mobile Navigation Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-black bg-opacity-20 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)}>
+        <div className="md:hidden fixed inset-0 z-[60]">
+          {/* Backdrop */}
           <div
-            className="absolute top-[65px] right-0 left-0 bg-white shadow-soft animate-slideIn border-b border-gray-100"
+            className="absolute inset-0 bg-navy-900/50 backdrop-blur-sm transition-opacity"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+
+          {/* Sidebar Drawer */}
+          <div
+            className="absolute top-0 right-0 bottom-0 w-[280px] bg-white shadow-2xl border-l-4 border-gold-400 flex flex-col animate-in slide-in-from-right duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            <nav className="px-4 py-6">
-              <div className="flex flex-col space-y-4">
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between p-5 border-b border-gray-100 bg-white">
+              <span className="font-bold text-lg text-navy-900">Menu</span>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 -mr-2 text-gray-500 hover:text-navy-900 transition-colors rounded-full hover:bg-gray-100"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Navigation Items */}
+            <nav className="flex-1 overflow-y-auto p-4 bg-white">
+              <div className="flex flex-col space-y-2">
                 <button
                   onClick={() => {
                     onMenuClick();
                     setMobileMenuOpen(false);
                   }}
-                  className="text-left text-theme-text font-medium text-base hover:text-theme-accent transition-colors"
+                  className="flex items-center gap-3 p-3 rounded-xl text-left font-medium text-base text-navy-900 hover:bg-navy-50 hover:text-navy-900 transition-all group"
                 >
+                  <div className="p-2 rounded-lg bg-navy-50 group-hover:bg-white group-hover:shadow-sm border border-transparent group-hover:border-gold-200 transition-all">
+                    <span className="w-5 h-5 text-gold-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    </span>
+                  </div>
                   Products
                 </button>
+                <a
+                  href="/calculator"
+                  className="flex items-center gap-3 p-3 rounded-xl text-left font-medium text-base text-navy-900 hover:bg-navy-50 hover:text-navy-900 transition-all group"
+                >
+                  <div className="p-2 rounded-lg bg-navy-50 group-hover:bg-white group-hover:shadow-sm border border-transparent group-hover:border-gold-200 transition-all">
+                    <Calculator className="w-5 h-5 text-gold-500" />
+                  </div>
+                  Peptide Calculator
+                </a>
+                <a
+                  href="/coa"
+                  className="flex items-center gap-3 p-3 rounded-xl text-left font-medium text-base text-navy-900 hover:bg-navy-50 hover:text-navy-900 transition-all group"
+                >
+                  <div className="p-2 rounded-lg bg-navy-50 group-hover:bg-white group-hover:shadow-sm border border-transparent group-hover:border-gold-200 transition-all">
+                    <FileText className="w-5 h-5 text-gold-500" />
+                  </div>
+                  Lab Tests (COA)
+                </a>
+                <a
+                  href="/faq"
+                  className="flex items-center gap-3 p-3 rounded-xl text-left font-medium text-base text-navy-900 hover:bg-navy-50 hover:text-navy-900 transition-all group"
+                >
+                  <div className="p-2 rounded-lg bg-navy-50 group-hover:bg-white group-hover:shadow-sm border border-transparent group-hover:border-gold-200 transition-all">
+                    <HelpCircle className="w-5 h-5 text-gold-500" />
+                  </div>
+                  FAQ
+                </a>
                 <a
                   href="https://t.me/+kdn_GOqZXxI1Y2Jl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-left text-theme-text font-medium text-base hover:text-[#0088cc] transition-colors flex items-center gap-2"
+                  className="flex items-center gap-3 p-3 rounded-xl text-left font-medium text-base text-navy-900 hover:bg-navy-50 hover:text-navy-900 transition-all group"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <div className="p-2 rounded-lg bg-navy-50 group-hover:bg-white group-hover:shadow-sm border border-transparent group-hover:border-gold-200 transition-all">
+                    <MessageCircle className="w-5 h-5 text-gold-500" />
+                  </div>
                   Join Community
                 </a>
-                {/* Lab Reports & FAQ Removed */}
-                <div className="pt-4 border-t border-gray-100 flex flex-col gap-3">
-                  {/* WhatsApp Removed */}
-                </div>
               </div>
             </nav>
           </div>

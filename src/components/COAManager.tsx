@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit2, Trash2, Save, X, Shield, ExternalLink, Sparkles } from 'lucide-react';
+import { Plus, Edit2, Trash2, Save, X, Shield, ExternalLink, Sparkles, ArrowLeft } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import ImageUpload from './ImageUpload';
+
+interface COAManagerProps {
+  onBack?: () => void;
+}
 
 interface COAReport {
   id: string;
@@ -18,7 +22,7 @@ interface COAReport {
   laboratory: string;
 }
 
-const COAManager: React.FC = () => {
+const COAManager: React.FC<COAManagerProps> = ({ onBack }) => {
   const [coaReports, setCOAReports] = useState<COAReport[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -241,14 +245,25 @@ const COAManager: React.FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-            <Shield className="w-7 h-7 text-gold-600" />
-            COA Lab Reports
-          </h2>
-          <p className="text-sm text-gray-600 mt-1">
-            Manage certificates of analysis and lab test reports
-          </p>
+        <div className="flex items-center gap-2">
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              title="Go Back"
+            >
+              <ArrowLeft className="w-6 h-6 text-gray-600" />
+            </button>
+          )}
+          <div>
+            <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+              <Shield className="w-7 h-7 text-gold-600" />
+              COA Lab Reports
+            </h2>
+            <p className="text-sm text-gray-600 mt-1">
+              Manage certificates of analysis and lab test reports
+            </p>
+          </div>
         </div>
         <div className="flex items-center gap-3">
           {/* COA Page Toggle */}

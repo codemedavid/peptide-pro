@@ -7,10 +7,10 @@ import ImageUpload from './ImageUpload';
 import CategoryManager from './CategoryManager';
 import PaymentMethodManager from './PaymentMethodManager';
 import VariationManager from './VariationManager';
-// import COAManager from './COAManager';
+import COAManager from './COAManager';
 import PeptideInventoryManager from './PeptideInventoryManager';
 import OrdersManager from './OrdersManager';
-// import FAQManager from './FAQManager';
+import FAQManager from './FAQManager';
 import ShippingManager from './ShippingManager';
 
 const AdminDashboard: React.FC = () => {
@@ -21,7 +21,7 @@ const AdminDashboard: React.FC = () => {
   const [loginError, setLoginError] = useState('');
   const { products, loading, addProduct, updateProduct, deleteProduct, refreshProducts } = useMenu();
   const { categories } = useCategories();
-  const [currentView, setCurrentView] = useState<'dashboard' | 'products' | 'add' | 'edit' | 'categories' | 'payments' | 'inventory' | 'orders' | 'shipping'>('dashboard');
+  const [currentView, setCurrentView] = useState<'dashboard' | 'products' | 'add' | 'edit' | 'categories' | 'payments' | 'inventory' | 'orders' | 'shipping' | 'coa' | 'faq'>('dashboard');
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [managingVariationsProductId, setManagingVariationsProductId] = useState<string | null>(null);
@@ -1067,6 +1067,16 @@ const AdminDashboard: React.FC = () => {
     return <ShippingManager onBack={() => setCurrentView('dashboard')} />;
   }
 
+  // COA View
+  if (currentView === 'coa') {
+    return <COAManager onBack={() => setCurrentView('dashboard')} />;
+  }
+
+  // FAQ View
+  if (currentView === 'faq') {
+    return <FAQManager onBack={() => setCurrentView('dashboard')} />;
+  }
+
   // Dashboard View
   return (
     <>
@@ -1245,6 +1255,24 @@ const AdminDashboard: React.FC = () => {
                     <MapPin className="h-4 w-4 text-green-600" />
                   </div>
                   <span className="text-sm font-medium text-gray-700">Shipping Locations</span>
+                </button>
+                <button
+                  onClick={() => setCurrentView('coa')}
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
+                >
+                  <div className="p-1.5 bg-cyan-50 rounded-lg">
+                    <Shield className="h-4 w-4 text-cyan-600" />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">Lab Results (COA)</span>
+                </button>
+                <button
+                  onClick={() => setCurrentView('faq')}
+                  className="w-full flex items-center gap-3 p-2 text-left hover:bg-gray-50 rounded-lg transition-all"
+                >
+                  <div className="p-1.5 bg-indigo-50 rounded-lg">
+                    <HelpCircle className="h-4 w-4 text-indigo-600" />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">Manage FAQ</span>
                 </button>
               </div>
             </div>

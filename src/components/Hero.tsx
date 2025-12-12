@@ -7,10 +7,18 @@ type HeroProps = {
 
 const Hero: React.FC<HeroProps> = ({ onShopAll }) => {
   return (
-    <div className="relative overflow-hidden bg-theme-bg pt-12 pb-16 md:pt-20 md:pb-24 lg:pt-28 lg:pb-32">
+    <div className="relative overflow-hidden bg-white pt-6 pb-16 md:pt-10 md:pb-24 lg:pt-14 lg:pb-32">
+      {/* Radial Gradient Background: Blue glow in center fading to white outer */}
+      <div
+        className="absolute inset-0 pointer-events-none transform scale-125"
+        style={{
+          background: 'radial-gradient(circle at 50% 0%, rgba(0, 0, 128, 0.10) 0%, rgba(0, 0, 128, 0.03) 40%, rgba(255, 255, 255, 0) 80%)'
+        }}
+      />
+
       {/* Abstract Background Shape */}
       <div className="absolute top-0 right-0 -mr-24 -mt-24 w-96 h-96 rounded-full bg-theme-accent/5 blur-3xl opacity-50 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-80 h-80 rounded-full bg-theme-secondary/5 blur-3xl opacity-50 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-80 h-80 rounded-full bg-gold-400/10 blur-3xl opacity-50 pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -28,9 +36,9 @@ const Hero: React.FC<HeroProps> = ({ onShopAll }) => {
 
           {/* Main Heading */}
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-theme-text mb-4 md:mb-6 tracking-tight leading-tight">
-            Premium <span className="text-theme-accent">Peptides</span> & Essentials
-            <br className="hidden md:block" />
-            <span className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-600">From the Lab to You — Simplifying Science, One Dose at a Time.</span>
+            Premium <span className="text-gold-500">Peptides</span> & Essentials
+            <br />
+            <span className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-600 block mt-2">From the Lab to You — Simplifying Science, One Dose at a Time.</span>
           </h1>
 
           {/* Tagline */}
@@ -58,15 +66,6 @@ const Hero: React.FC<HeroProps> = ({ onShopAll }) => {
             >
               View Lab Tests & Quality Assurance
               <ShieldCheck className="w-4 h-4" />
-            </a>
-            <a
-              href="https://t.me/+kdn_GOqZXxI1Y2Jl"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 rounded-lg font-medium bg-[#0088cc] text-white hover:bg-[#007dba] transition-colors flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
-              Join Our Telegram Community
-              <MessageCircle className="w-5 h-5" />
             </a>
           </div>
 
@@ -98,7 +97,7 @@ const Hero: React.FC<HeroProps> = ({ onShopAll }) => {
           {/* Real-World Tested Section */}
           <div className="mt-12 md:mt-16 bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm max-w-2xl mx-auto">
             <div className="flex items-center justify-center gap-2 mb-3">
-              <FlaskConical className="w-5 h-5 text-theme-accent" />
+              <FlaskConical className="w-5 h-5 text-gold-500" />
               <h3 className="font-bold text-theme-text">Real-World Tested</h3>
             </div>
             <p className="text-sm md:text-base text-gray-600 leading-relaxed">

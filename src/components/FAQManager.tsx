@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { Plus, Edit2, Trash2, Save, X, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import { Plus, Edit2, Trash2, Save, X, ChevronDown, ChevronUp, HelpCircle, ArrowLeft } from 'lucide-react';
 import { useFAQsAdmin, FAQItem } from '../hooks/useFAQs';
 
-const FAQManager: React.FC = () => {
+interface FAQManagerProps {
+    onBack?: () => void;
+}
+
+const FAQManager: React.FC<FAQManagerProps> = ({ onBack }) => {
     const { faqs, loading, addFAQ, updateFAQ, deleteFAQ, refetch } = useFAQsAdmin();
     const [editingId, setEditingId] = useState<string | null>(null);
     const [isAdding, setIsAdding] = useState(false);
@@ -94,6 +98,15 @@ const FAQManager: React.FC = () => {
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
+                    {onBack && (
+                        <button
+                            onClick={onBack}
+                            className="p-2 hover:bg-gray-100 rounded-lg transition-colors mr-2"
+                            title="Go Back"
+                        >
+                            <ArrowLeft className="w-6 h-6 text-gray-600" />
+                        </button>
+                    )}
                     <HelpCircle className="w-6 h-6 text-theme-accent" />
                     <h2 className="text-xl font-bold text-gray-900">FAQ Management</h2>
                 </div>
@@ -250,8 +263,8 @@ const FAQManager: React.FC = () => {
                                     <button
                                         onClick={() => toggleActive(faq)}
                                         className={`p-2 rounded-lg transition-colors ${faq.is_active
-                                                ? 'text-green-600 hover:bg-green-50'
-                                                : 'text-gray-400 hover:bg-gray-100'
+                                            ? 'text-green-600 hover:bg-green-50'
+                                            : 'text-gray-400 hover:bg-gray-100'
                                             }`}
                                         title={faq.is_active ? 'Hide FAQ' : 'Show FAQ'}
                                     >

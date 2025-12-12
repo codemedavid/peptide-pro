@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useCart } from './hooks/useCart';
 import Header from './components/Header';
 import SubNav from './components/SubNav';
-import MobileNav from './components/MobileNav';
 import Menu from './components/Menu';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import FloatingCartButton from './components/FloatingCartButton';
 import Footer from './components/Footer';
 import AdminDashboard from './components/AdminDashboard';
-// import COA from './components/COA';
-// import FAQ from './components/FAQ';
+import COA from './components/COA';
+import FAQ from './components/FAQ';
+import PeptideCalculator from './components/PeptideCalculator';
 import { useMenu } from './hooks/useMenu';
 // import { useCOAPageSetting } from './hooks/useCOAPageSetting';
 
@@ -45,10 +45,7 @@ function MainApp() {
       />
 
       {currentView === 'menu' && (
-        <>
-          <SubNav selectedCategory={selectedCategory} onCategoryClick={handleCategoryClick} />
-          <MobileNav activeCategory={selectedCategory} onCategoryClick={handleCategoryClick} />
-        </>
+        <SubNav selectedCategory={selectedCategory} onCategoryClick={handleCategoryClick} />
       )}
 
       <main className="flex-grow">
@@ -95,6 +92,7 @@ function MainApp() {
   );
 }
 
+
 function App() {
   //   const { coaPageEnabled } = useCOAPageSetting();
 
@@ -102,8 +100,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<MainApp />} />
-        {/* <Route path="/coa" element={<COA />} /> */}
-        {/* <Route path="/faq" element={<FAQ />} /> */}
+        <Route path="/coa" element={<COA />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/calculator" element={<PeptideCalculator />} />
         <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </Router>
