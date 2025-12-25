@@ -31,7 +31,7 @@ const Cart: React.FC<CartProps> = ({
             </div>
             <h2 className="text-2xl font-bold text-gray-800 mb-3 flex items-center justify-center gap-2">
               Your cart is empty
-              <Heart className="w-6 h-6 text-pink-400" />
+              <Heart className="w-6 h-6 text-green-500" />
             </h2>
             <p className="text-gray-600 mb-8">
               Start adding amazing products to your cart! ✨

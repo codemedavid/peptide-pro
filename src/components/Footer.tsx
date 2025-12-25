@@ -20,13 +20,13 @@ const Footer: React.FC = () => {
             <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-100">
               <img
                 src="/assets/logo.jpeg"
-                alt="Peptide Pulse"
+                alt="Peptide Pro"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="text-left">
               <div className="font-bold text-theme-text text-lg tracking-tight">
-                Peptide Pulse
+                Peptide Pro
               </div>
               <div className="text-xs text-gray-500">Premium Peptide Solutions</div>
             </div>
@@ -35,12 +35,12 @@ const Footer: React.FC = () => {
           {/* Contact Emails */}
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-sm text-gray-500">
             <span className="text-xs font-medium text-gray-400 uppercase">Contact Us:</span>
-            <a href="mailto:peptidewhisperer@gmail.com" className="hover:text-theme-accent transition-colors">
-              peptidewhisperer@gmail.com
+            <a href="mailto:peptidepropeftify@gmail.com" className="hover:text-theme-accent transition-colors">
+              peptidepropeftify@gmail.com
             </a>
             <span className="hidden sm:inline text-gray-300">|</span>
-            <a href="mailto:thepeptidepulse@gmail.com" className="hover:text-theme-accent transition-colors">
-              thepeptidepulse@gmail.com
+            <a href="mailto:peptidepropeftify@gmail.com" className="hover:text-theme-accent transition-colors">
+              peptidepropeftify@gmail.com
             </a>
           </div>
 
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
               Join Community
             </a>
             <a
-              href="https://www.tiktok.com/@peptidepulse20?_r=1&_t=ZS-92SrpIepm5s"
+              href="https://www.tiktok.com/@peptidepro?_r=1&_t=ZS-92WQUUBQxMr"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-black transition-colors flex items-center gap-2 text-sm font-medium"
@@ -119,7 +119,7 @@ const Footer: React.FC = () => {
           <p className="text-xs text-gray-400 flex items-center justify-center gap-1">
             Made with
             <Heart className="w-3 h-3 text-theme-secondary fill-theme-secondary" />
-            © {currentYear} Peptide Pulse.
+            © {currentYear} Peptide Pro.
           </p>
         </div>
       </div>

@@ -20,26 +20,14 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
             {/* Logo and Brand */}
             <button
               onClick={() => { onMenuClick(); setMobileMenuOpen(false); }}
-              className="flex items-center space-x-3 hover:opacity-80 transition-all group min-w-0 flex-1 max-w-[calc(100%-130px)] sm:max-w-none sm:flex-initial"
+              className="flex items-center hover:opacity-80 transition-all group"
             >
-              <div className="relative flex-shrink-0">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-gray-200">
-                  <img
-                    src="/assets/logo.jpeg"
-                    alt="Peptide Pulse"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="text-left min-w-0 flex-1">
-                <h1 className="text-lg sm:text-xl font-bold text-theme-text leading-tight whitespace-nowrap overflow-hidden text-ellipsis tracking-tight">
-                  Peptide Pulse
-                </h1>
-                <p className="text-xs text-gray-500 font-medium flex items-center gap-1">
-                  <span className="whitespace-nowrap overflow-hidden text-ellipsis">
-                    Premium Peptide Solutions
-                  </span>
-                </p>
+              <div className="h-10 sm:h-12 overflow-hidden">
+                <img
+                  src="/assets/logo.jpeg"
+                  alt="Peptide Pro"
+                  className="h-full w-auto object-contain"
+                />
               </div>
             </button>
 

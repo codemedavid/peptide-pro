@@ -371,11 +371,11 @@ const AdminDashboard: React.FC = () => {
       <div className="min-h-screen bg-theme-bg flex items-center justify-center px-4">
         <div className="bg-white rounded-xl shadow-soft p-6 md:p-8 w-full max-w-md border border-navy-900/20">
           <div className="text-center mb-6">
-            <div className="relative mx-auto w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-theme-accent/30">
+            <div className="h-12 mx-auto mb-4 flex justify-center">
               <img
                 src="/assets/logo.jpeg"
-                alt="Peptide Pulse"
-                className="w-full h-full object-cover"
+                alt="Peptide Pro"
+                className="h-full w-auto object-contain"
               />
             </div>
             <h1 className="text-2xl font-bold text-theme-text mb-1">Admin Access</h1>
@@ -1145,21 +1145,13 @@ const AdminDashboard: React.FC = () => {
         <div className="bg-white shadow-md border-b-4 border-navy-900">
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex items-center justify-between h-14">
-              <div className="flex items-center space-x-3">
-                <div className="w-9 h-9 rounded-full overflow-hidden border border-navy-900/20">
+              <div className="flex items-center">
+                <div className="h-10 overflow-hidden">
                   <img
                     src="/assets/logo.jpeg"
-                    alt="Peptide Pulse"
-                    className="w-full h-full object-cover"
+                    alt="Peptide Pro"
+                    className="h-full w-auto object-contain"
                   />
-                </div>
-                <div>
-                  <h1 className="text-base font-bold text-theme-text">
-                    Peptide Pulse
-                  </h1>
-                  <p className="text-xs text-gray-500">
-                    Admin Dashboard
-                  </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
