@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
               Assessment
             </a>
             <a
-              href="https://t.me/+48LRwjWtIqsyMDc1"
+              href="https://t.me/+9N_KiQ8dqrM3YWY1"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-[#0088cc] transition-colors flex items-center gap-2 text-sm font-medium"
