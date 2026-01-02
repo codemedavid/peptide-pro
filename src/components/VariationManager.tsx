@@ -33,8 +33,8 @@ const VariationManager: React.FC<VariationManagerProps> = ({ product, onClose })
   });
 
   const handleAddVariation = async () => {
-    if (!newVariation.name || newVariation.price <= 0 || newVariation.quantity_mg <= 0) {
-      alert('Please fill in all fields correctly');
+    if (newVariation.price <= 0) {
+      alert('Please enter a valid price');
       return;
     }
 
@@ -90,8 +90,8 @@ const VariationManager: React.FC<VariationManagerProps> = ({ product, onClose })
   };
 
   const handleUpdateVariation = async () => {
-    if (!editingId || !editingVariation.name || editingVariation.price <= 0 || editingVariation.quantity_mg <= 0) {
-      alert('Please fill in all fields correctly');
+    if (!editingId || editingVariation.price <= 0) {
+      alert('Please enter a valid price');
       return;
     }
 
